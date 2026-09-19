@@ -78,7 +78,7 @@ const dict=window.UI_I18N={
 '我如何连接这三个学科':['Connecting three disciplines','三つの学問をつなぐ','세 학문을 연결하는 방법'],
 '我的学习横跨国际关系、马克思主义与经济学。我在这里整理经典文献与思想脉络，记录跨学科的阅读与理解。':['My learning spans international relations, Marxism and economics. This site brings together classic texts, intellectual traditions and my understanding across disciplines.','国際関係、マルクス主義、経済学を横断して学んでいます。このサイトでは古典的著作と思想の流れを整理し、分野を越えた読書と理解を記録しています。','국제관계, 마르크스주의, 경제학을 넘나들며 공부하고 있습니다. 이곳에서 고전 문헌과 사상의 흐름을 정리하고 학문 간 독서와 이해를 기록합니다.'],
 '学习经济学，让我关注资源配置与制度选择；阅读马克思主义，让我把这些问题放回历史与社会关系；国际关系则把视野扩展到国家、秩序与全球层面的互动。我希望沿着经典著作与争论，理解这些视角怎样补充彼此。':['Economics draws my attention to allocation and institutional choices. Marxism places these questions in history and social relations. International relations extends the discussion to states, order and global interaction. Through classic texts and debates, I explore how these perspectives complement one another.','経済学からは資源配分と制度の選択を、マルクス主義からはその歴史と社会関係を学びます。国際関係は視野を国家・秩序・世界的な相互作用へ広げてくれます。古典と論争をたどり、これらの視角がどう補い合うかを考えています。','경제학은 자원배분과 제도 선택에 주목하게 하고, 마르크스주의는 이를 역사와 사회관계 속에서 바라보게 합니다. 국제관계는 시야를 국가, 질서, 세계적 상호작용으로 넓혀 줍니다. 고전과 논쟁을 통해 이 관점들이 어떻게 서로를 보완하는지 살펴봅니다.'],
-'国防科技大学':['National University of Defense Technology','国防科技大学','국방과학기술대학'],
+'某985高校':['A Project 985 university','中国の某985重点大学','중국의 한 985 중점대학'],
 '香港浸会大学':['Hong Kong Baptist University','香港浸会大学','홍콩침례대학교'],
 '昆山杜克大学':['Duke Kunshan University','昆山デューク大学','듀크쿤산대학교'],
 '厦门大学':['Xiamen University','厦門大学','샤먼대학교'],
