@@ -1,0 +1,88 @@
+(() => {
+const a=window.ATLAS;
+a.disciplines=[['all','三科总览'],['ir','国际关系'],['marx','马克思主义 · 全球治理'],['econ','经济学']];
+a.nodes.forEach(n=>n.disciplines=['ir',...(n.school==='critical'?['marx']:[]),...(n.school==='ipe'?['econ']:[])]);
+a.schools.push(['foundations','马克思主义经典','#a55361'],['hegemony','霸权与批判理论','#946276'],['governance','全球治理与资本主义','#97504b'],['classical','古典经济学','#547c9f'],['micro','边际革命与微观经济学','#547aa5'],['macro','宏观经济学','#456499'],['institutions','制度与公共治理','#3d8280'],['development','发展与国际经济学','#72814c']);
+const rows=[
+['marx-engels','foundations',1848,'Karl Marx · Friedrich Engels','马克思 / 恩格斯 · 历史与阶级','阶级与社会','Manifesto of the Communist Party','分析阶级关系、资本主义扩张与世界市场的形成。','资本主义的世界性扩张改变生产、政治和社会关系。','marx','https://www.marxists.org/archive/marx/works/1848/communist-manifesto/'],
+['marx','foundations',1867,'Karl Marx','马克思 · 政治经济学批判','阶级与社会','Capital, Volume I','从商品、价值、劳动过程与剩余价值出发分析资本主义生产。','资本是一种社会关系；积累过程同时再生产特定的阶级关系。','marx,econ','https://www.marxists.org/archive/marx/works/1867-c1/'],
+['engels','foundations',1884,'Friedrich Engels','恩格斯 · 国家与历史','阶级与社会','The Origin of the Family, Private Property and the State','以当时的人类学材料讨论家庭、财产与国家，部分经验判断须结合后来研究审视。','国家的形成与阶级分化及特定社会历史条件相关。','marx','https://www.marxists.org/archive/marx/works/1884/origin-family/'],
+['luxemburg','foundations',1913,'Rosa Luxemburg','卢森堡 · 资本积累','体系','The Accumulation of Capital','从资本积累与非资本主义环境的关系讨论扩张与帝国主义。','资本再生产的条件与资本主义向外扩展相互关联；其论证存在长期争论。','marx,econ','https://www.marxists.org/archive/luxemburg/1913/accumulation-capital/'],
+['gramsci','hegemony',1971,'Antonio Gramsci','葛兰西 · 霸权与市民社会','阶级与社会','Selections from the Prison Notebooks','此处年份为英文选集出版年；相关笔记写于 1929—1935 年。','统治不仅依赖强制，也通过市民社会中的组织、观念和同意维系。','marx'],
+['horkheimer','hegemony',1937,'Max Horkheimer','霍克海默 · 批判理论','阶级与社会','Traditional and Critical Theory','把知识生产置于社会关系之中，反思理论的社会位置。','理论可以追问并批判生成其研究对象的社会结构。','marx'],
+['habermas','hegemony',1981,'Jürgen Habermas','哈贝马斯 · 交往理性','阶级与社会','The Theory of Communicative Action','讨论交往行动、生活世界与系统之间的关系。','社会协调不能完全还原为工具性计算，沟通与正当性也有重要作用。','marx'],
+['gill','governance',1993,'Stephen Gill (ed.)','吉尔 · 新葛兰西主义','跨国网络','Gramsci, Historical Materialism and International Relations','文集把葛兰西思想引入国际政治经济与世界秩序研究。','全球秩序可从社会力量、国家与跨国制度之间的历史关系加以理解。','marx,ir','https://doi.org/10.1017/CBO9780511558993'],
+['robinson','governance',2004,'William I. Robinson','罗宾逊 · 全球资本主义','跨国网络','A Theory of Global Capitalism','提出关于跨国资本家阶级与跨国国家装置的解释。','全球化可从跨国阶级形成与资本积累的组织变化来理解。','marx,ir'],
+['harvey','governance',2005,'David Harvey','哈维 · 新自由主义','阶级与社会','A Brief History of Neoliberalism','考察新自由主义的历史发展及其阶级政治。','市场化重组与国家实践可能共同重塑权力和财富分配。','marx,econ'],
+['fraser','governance',2008,'Nancy Fraser','弗雷泽 · 跨国正义','跨国网络','Scales of Justice','讨论超越单一国家框架的再分配、承认与代表权问题。','全球化条件下，正义问题还包括谁能参与界定讨论和决策的边界。','marx,ir'],
+['gill-governance','governance',2015,'Stephen Gill (ed.)','全球治理的批判视角','跨国网络','Critical Perspectives on the Crisis of Global Governance','文集从批判政治经济学出发讨论全球治理危机及社会替代路径。','全球治理涉及谁制定规则、谁承担成本，以及社会力量如何争取改变。','marx,ir'],
+['smith','classical',1776,'Adam Smith','斯密 · 分工与市场','微观','An Inquiry into the Nature and Causes of the Wealth of Nations','分析分工、交换、资本积累与商业社会，同时讨论国家职能。','分工提高生产力，但其扩展受市场规模与社会条件制约。','econ'],
+['ricardo','classical',1817,'David Ricardo','李嘉图 · 分配与比较优势','宏观','On the Principles of Political Economy and Taxation','围绕工资、利润、地租与贸易解释经济分配。','即便一国在所有商品上拥有绝对优势，比较成本差异仍可能带来贸易收益。','econ'],
+['mill','classical',1848,'John Stuart Mill','穆勒 · 生产与分配','制度','Principles of Political Economy','综合古典经济学，同时讨论制度安排与社会改革。','分配规则受人类制度影响，不能简单等同于不可改变的自然法则。','econ'],
+['jevons','micro',1871,'William Stanley Jevons','杰文斯 · 边际效用','微观','The Theory of Political Economy','用边际效用分析选择、交换与价值。','选择取决于增量效用及资源稀缺性，而不只是总效用。','econ'],
+['menger','micro',1871,'Carl Menger','门格尔 · 主观价值','微观','Principles of Economics','从需要、稀缺与个体评价建立价值解释。','物品的价值取决于其对满足需求的重要性，而非固有属性。','econ'],
+['walras','micro',1874,'Léon Walras','瓦尔拉斯 · 一般均衡','微观','Elements of Pure Economics','该书分卷发表于 1874—1877 年；把相互依赖的市场纳入均衡体系。','一个市场的价格与数量需要在其他市场的相互作用中理解。','econ'],
+['marshall','micro',1890,'Alfred Marshall','马歇尔 · 供需与局部均衡','微观','Principles of Economics','结合供给、需求、时间区间与企业行为开展分析。','价值形成涉及供需双方，短期与长期调整机制可能不同。','econ'],
+['keynes','macro',1936,'John Maynard Keynes','凯恩斯 · 有效需求','宏观','The General Theory of Employment, Interest and Money','解释失业、投资、利率与总需求之间的联系。','市场经济可能在未充分就业时达到均衡，总需求不足可以持续。','econ'],
+['hayek','macro',1945,'Friedrich Hayek','哈耶克 · 分散知识','制度','The Use of Knowledge in Society','考察价格体系如何传递分散在社会中的知识。','经济协调面临利用地方性、分散知识的问题。','econ'],
+['friedman','macro',1968,'Milton Friedman','弗里德曼 · 货币与预期','宏观','The Role of Monetary Policy','讨论货币政策的作用边界及预期调整。','不能把通胀与失业的短期关系当成长期可稳定利用的政策交换。','econ'],
+['lucas','macro',1976,'Robert E. Lucas Jr.','卢卡斯 · 政策评价','宏观','Econometric Policy Evaluation: A Critique','指出政策变化可能改变经济主体的决策规则。','政策评价不能简单假设历史统计关系在新制度下保持稳定。','econ'],
+['polanyi','institutions',1944,'Karl Polanyi','波兰尼 · 市场与社会','制度','The Great Transformation','研究自我调节市场的历史建构及社会保护的反向运动。','经济嵌入社会，市场扩展与社会保护之间存在持续张力。','econ,marx,ir'],
+['coase','institutions',1937,'Ronald Coase','科斯 · 企业与交易成本','微观','The Nature of the Firm','解释为什么部分交易由企业内部协调，而非经由市场进行。','市场交易本身有成本，组织边界与不同协调方式的成本有关。','econ'],
+['north','institutions',1990,'Douglass North','诺斯 · 制度变迁','制度','Institutions, Institutional Change and Economic Performance','区分制度与组织，讨论约束、激励和路径依赖。','正式规则、非正式约束与执行共同影响长期经济表现。','econ'],
+['ostrom','institutions',1990,'Elinor Ostrom','奥斯特罗姆 · 公共资源治理','制度','Governing the Commons','通过案例研究公共资源使用者的自组织制度。','公共资源治理存在多种可行制度，不能预设市场或国家是唯一方案。','econ,ir','https://doi.org/10.1017/CBO9780511807763'],
+['nash','micro',1950,'John Nash','纳什 · 非合作博弈','微观','Equilibrium Points in N-Person Games','以相互依赖的策略选择形式化分析均衡。','在均衡策略组合下，任何单方改变策略都不能提高自身收益。','econ','https://doi.org/10.1073/pnas.36.1.48'],
+['lewis','development',1954,'W. Arthur Lewis','刘易斯 · 二元经济','宏观','Economic Development with Unlimited Supplies of Labour','分析劳动剩余、资本积累与结构转型。','劳动力在传统与现代部门间的转移可能支持增长，但条件并非普遍存在。','econ'],
+['prebisch','development',1950,'Raúl Prebisch','普雷维什 · 中心与外围','体系','The Economic Development of Latin America and Its Principal Problems','从国际分工与贸易条件考察拉丁美洲的发展障碍。','中心与外围在技术进步收益和国际贸易结构中的位置可能不对称。','econ,marx'],
+['sen','development',1999,'Amartya Sen','森 · 发展与自由','个体','Development as Freedom','把发展理解为实质自由与能力的扩展。','收入增长是手段，评价发展还应考察人们实际能够做什么、成为什么。','econ'],
+['krugman','development',1979,'Paul Krugman','克鲁格曼 · 新贸易理论','体系','Increasing Returns, Monopolistic Competition, and International Trade','把规模报酬递增与产品差异化引入国际贸易模型。','相似国家也可能因规模经济与多样化需求形成贸易。','econ'],
+['ruggie','liberalism',1982,'John Gerard Ruggie','鲁杰 · 嵌入式自由主义','体系','International Regimes, Transactions, and Change: Embedded Liberalism in the Postwar Economic Order','解释战后开放经济与国内社会政策空间之间的制度妥协。','国际经济开放与国内社会保障可以通过特定制度安排结合。','ir,econ','https://doi.org/10.1017/S0020818300018993'],
+['rosenau','liberalism',1992,'James Rosenau · Ernst-Otto Czempiel (eds.)','罗西瑙等 · 没有政府的治理','跨国网络','Governance without Government: Order and Change in World Politics','文集讨论超越单一中央政府的国际秩序与治理机制。','治理可以经由多层次规则和行动者协调实现，不等于中央政府的存在。','ir','https://doi.org/10.1017/CBO9780511521775']
+];
+a.nodes.push(...rows.map(([id,school,year,name,title,level,book,intro,claim,discipline,url])=>({id,school,year,name,title,level,book,intro,claim,disciplines:discipline.split(','),url:url||'https://search.worldcat.org/search?q='+encodeURIComponent(book),sourceType:url?'文献 / 书目来源':'WorldCat 书目检索',notes:[]})));
+// Reclassify comparison edges: intellectual affinity does not prove direct influence.
+a.edges.forEach(e=>{if(['carr:morgenthau','onuf:wendt','lenin:frank','bull:securitization'].includes(e.from+':'+e.to))e.type='dialogue'});
+const extra=[
+['marx-engels','marx','inherit','从历史与阶级的纲领性论述，推进到资本主义生产方式的系统分析。'],
+['marx','engels','inherit','在共同的历史唯物主义问题脉络中讨论财产与国家。'],
+['marx','luxemburg','inherit','对资本再生产与扩张条件展开发展和争论。'],
+['marx','lenin','inherit','把资本集中与积累问题推进至帝国主义的历史分析。'],
+['marx','gramsci','inherit','在马克思主义传统内拓展政治、文化和领导权分析。'],
+['marx','horkheimer','inherit','从社会总体性与批判的传统中发展法兰克福学派理论。'],
+['horkheimer','habermas','fork','在批判理论传统中转向交往、理性与正当性。'],
+['gramsci','cox','inherit','考克斯将霸权与历史集团等问题引入世界秩序分析；连接不以选集年份判断思想先后。'],
+['cox','gill','inherit','新葛兰西主义延续对世界秩序、社会力量与霸权的历史分析。'],
+['gill','gill-governance','inherit','从新葛兰西主义国际政治经济学推进到全球治理危机的批判研究。'],
+['gill','robinson','dialogue','比较新葛兰西主义与全球资本主义理论对跨国阶级及国家的不同解释。'],
+['marx','harvey','inherit','把资本积累与阶级分析用于新自由主义的历史解释。'],
+['habermas','fraser','critique','弗雷泽与批判理论及公共领域论述对话，重审参与边界与代表权。'],
+['fraser','gill-governance','dialogue','比较全球治理中的分配、承认、代表与社会力量；不是直接思想继承。'],
+['robinson','gill-governance','dialogue','以跨国阶级和治理制度为共同问题，保留其理论分歧。'],
+['harvey','gill-governance','dialogue','从新自由主义重组理解全球治理危机的政治经济背景。'],
+['smith','ricardo','inherit','在古典政治经济学中推进价值、分配与贸易分析。'],
+['ricardo','mill','inherit','综合并修订古典经济学的生产与分配问题。'],
+['ricardo','marx','critique','批判性继承古典政治经济学的问题，重构价值、剩余价值与资本的解释。'],
+['smith','marx','critique','马克思批判性讨论斯密关于劳动、价值和积累的论述。'],
+['mill','jevons','fork','从古典问题转向边际效用的价值解释；并非直接师承。'],
+['jevons','marshall','inherit','边际分析进入供需综合，马歇尔亦保留生产成本问题。'],
+['menger','hayek','inherit','延续奥地利学派对个体知识与经济协调的关注。'],
+['walras','nash','dialogue','均衡概念在市场与策略互动中有不同形式；这里是方法比较。'],
+['marshall','keynes','critique','在剑桥经济学背景中重审充分就业与宏观协调问题。'],
+['keynes','friedman','critique','就货币政策、预期和稳定政策的能力展开争论。'],
+['keynes','lucas','critique','批判既定政策模型参数在制度变化下保持稳定的假设。'],
+['friedman','lucas','inherit','将预期调整问题推进到政策制度与行为规则的分析。'],
+['coase','north','inherit','交易成本与产权问题进入长期制度变迁的研究。'],
+['north','ostrom','dialogue','比较制度、执行与自组织治理；不是单向继承关系。'],
+['polanyi','ruggie','inherit','嵌入性问题被用于解释战后国际经济秩序的制度妥协。'],
+['ruggie','keohane','dialogue','国际制度既可从效率合作，也可从社会目的与历史妥协理解。'],
+['ostrom','rosenau','dialogue','多中心协调与没有中央政府的治理构成跨科比较线索。'],
+['prebisch','frank','dialogue','中心—外围与依附分析共享发展不平等问题，但机制解释不同。'],
+['ricardo','krugman','fork','贸易解释从比较优势拓展至规模经济、不完全竞争和产品差异。'],
+['lewis','sen','dialogue','把结构转型与增长解释，同能力和自由的发展评价相比较。'],
+['marx','wallerstein','inherit','资本积累与阶级问题被置于长时段世界经济分工之中。'],
+['nash','schelling','inherit','策略互动为威慑和谈判提供分析基础；谢林还强调承诺与协调。'],
+['polanyi','gill','dialogue','社会保护与市场扩张的问题，为批判国际政治经济学提供比较视角。'],
+['rosenau','gill-governance','critique','批判政治经济学追问治理规则背后的权力、阶级与分配；不是针对文集所有作者的统一反驳。']
+];
+a.edges.push(...extra.map(([from,to,type,note])=>({from,to,type,note})));
+})();
