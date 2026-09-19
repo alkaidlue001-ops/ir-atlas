@@ -6,7 +6,7 @@
 - 昆山杜克大学标识：https://www.dukekunshan.edu.cn/zh-hans/media/
 - 厦门大学校徽：https://www.xmu.edu.cn/sdgl/xxbs.htm
 
-使用官方图像，保持原始比例。国防科技大学按要求仅展示校名。个人照片尚未提供。
+使用官方图像，保持原始比例。某985高校按要求仅展示校名。个人照片尚未提供。
 
 ## Scholar portraits
 
