@@ -10,7 +10,7 @@
 
 ## Scholar portraits
 
-Images are resized for web delivery. Grayscale and cropping are CSS display effects; sources retain their own rights. Institutional images are credited to their profile pages; no blanket open license is asserted.
+Images are resized for web delivery. Original image colors are preserved; cropping is a CSS display effect. Sources retain their own rights. Institutional images are credited to their profile pages; no blanket open license is asserted.
 
 - **Vladimir Lenin** — Unknown, presumably official · Public domain. [Source](https://commons.wikimedia.org/wiki/File:Lenin_in_1920_%28cropped%29.jpg).
 - **Henry Farrell** — unidentified / Greenleaf Publishing · Public domain. [Source](https://commons.wikimedia.org/wiki/File:Charles_F_Myers_5207.jpg).
