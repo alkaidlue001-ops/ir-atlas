@@ -83,3 +83,9 @@ UnknownUnknown  · Public domain. [Source](https://commons.wikimedia.org/wiki/Fi
 - **Jaap de Wilde** — Official institutional profile. Rights remain with the source.. [Source](https://research.rug.nl/nl/persons/jaap-de-wilde/).
 - **James N. Rosenau** — Official institutional profile. Rights remain with the source.. [Source](https://dornsife.usc.edu/news/stories/in-memoriam-james-rosenau-86/).
 - **Michael W. Doyle** — Columbia SIPA faculty profile. Rights remain with the source.. [Source](https://www.sipa.columbia.edu/communities-connections/faculty/michael-doyle).
+
+## 2026-10-05：四位缺失人物审核
+
+Andre Gunder Frank、Ernst-Otto Czempiel、Hedley Bull、Robert W. Cox 的候选来源已记录在 `dist/portraits.js` 的 `candidates`，审核证据见 [portrait-audit.md](docs/portrait-audit.md)。本次没有新增、裁切或展示这四人的照片；公开访问不代表开放再使用许可。`licenseUrl` 为空表示授权未确定，不表示公有领域。新增政治学节点使用文字占位。
+
+本次审核仅覆盖上述四人；原有图片清单中的来源署名不构成对所有旧图片再使用权限的新确认。

@@ -1,6 +1,6 @@
 # Alkaid’s Atlas
 
-国际关系、马克思主义与全球治理、经济学的个人学习网站。67个思想节点、65条关系，支持中文、英文、日文、韩文。包含已确认的个人经历、About Us，以及《国家为什么这样行动》第1至第4章的简介和目录。
+国际关系、政治学基础、马克思主义与全球治理、经济学的个人学习网站。88个思想节点、97条关系，支持中文、英文、日文、韩文。包含已确认的个人经历、About Us，以及《国家为什么这样行动》第1至第4章的简介和目录。
 
 ## 本地预览和管理
 
@@ -15,15 +15,19 @@
 - `dist/data.js`：国际关系基础节点和关系。
 - `dist/fields.js`：马克思主义、经济学及跨学科关系。
 - `dist/chinese-ir.js`：秦亚青、阎学通、唐世平、赵汀阳、王逸舟。
+- `dist/politics.js`：从两页手写政治学笔记扩展的21个节点、32条关系，附四语概括与导读。
+- `dist/knowledge-tree-data.js`：9个问题分支、36个概念、3组对照表、三轮阅读路线；每个概念含定义、易混点、案例、练习与来源。
+- `dist/knowledge-tree.js`、`knowledge-tree.css`：知识树搜索、展开／收起、原典跳转、Markdown导出与手机布局。知识树正文采用中文、术语中英对照，操作界面支持四语。
 - `dist/reading-guides.js`：扩充中文导读、四语核心概括及阅读问题。英日韩导读目前为较短概括，可在后台继续扩展。
 - `dist/profile.js`：本人确认的学校与暑期课程交流经历。未确认的学位、年份不填写。
 - `dist/content.js`：后台管理产生的公开内容覆盖与前四章目录；不包含原始文稿。
-- `dist/portraits.js`：人物照片、来源及版权署名。64位人物配图，4位资料暂缺时使用文字占位，详见其中 missing 列表。
+- `dist/portraits.js`：人物照片、来源及版权署名。保留原有64份人物配图记录。本次核查的4位学者均未找到可直接确认的开放授权，继续文字占位；六字段候选单独存放在 candidates，不进入显示用的 nodes / people。Czempiel 对应 Rosenau / Czempiel 合编节点。详见 [版权审核](docs/portrait-audit.md)。新增政治学节点先采用文字占位。
 - `dist/i18n.js`、`academic-i18n.js`、`relations-i18n.js`：四语界面、理论概括及关系说明。
 - `dist/app.js`、`enhancements.js`：图谱、筛选、详情、人物索引、写作页与音乐。
 - `dist/style.css`、`editorial.css`：基础布局及简约白色学术视觉。
 - `owner/`、`admin-server.cjs`：本机密码保护的管理界面及接口。
-- `node check.cjs`：检查全部脚本语法。
+- `npm run check`：检查全部脚本语法及数据完整性；`npm run test:data` 可单独检查引用、导读和头像隔离。
+- [政治学编选说明](docs/political-foundations.md)：笔记整理方式、重要概念修正与文献定位。
 
 节点字段包括 id、分支、代表作年份、学者、理论标题、分析层次、书名、简介、核心命题、来源链接与 disciplines。关系类型为继承、批判、分化、跨科对话；对话不意味着直接思想继承。分支内部按代表作年份排列，横向不是等比例时间轴。
 
