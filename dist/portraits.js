@@ -1188,5 +1188,91 @@ window.ATLAS_PORTRAITS = {
       "credit": "Columbia SIPA faculty profile. Rights remain with the source.",
       "source": "https://www.sipa.columbia.edu/communities-connections/faculty/michael-doyle"
     }
+  },
+  "candidates": {
+    "Andre Gunder Frank": {
+      "src": "https://montrealserai.com/_archives/2005_Volume_18/18_1/images/andregunderfrank.jpg",
+      "name": "Andre Gunder Frank",
+      "page": "https://montrealserai.com/_archives/2005_Volume_18/18_1/Article_13.htm",
+      "source": "https://montrealserai.com/_archives/2005_Volume_18/18_1/Article_13.htm",
+      "credit": "Montréal Serai, obituary by Maya Khankhoje (2005); photographer uncredited. Reuse permission not established.",
+      "licenseUrl": ""
+    },
+    "Ernst-Otto Czempiel": {
+      "src": "",
+      "name": "Ernst-Otto Czempiel",
+      "page": "https://www.prif.org/fileadmin/Daten/Downloads/Flyer__Infomaterial_etc/broschuere_50jahre_barrierefrei.pdf#page=29",
+      "source": "https://www.prif.org/fileadmin/Daten/Downloads/Flyer__Infomaterial_etc/broschuere_50jahre_barrierefrei.pdf#page=29",
+      "credit": "PRIF/HSFK, 50 Jahre HSFK (2020), p. 29: Czempiel with Hans-Dietrich Genscher (November 1999); photographer uncredited. Reuse permission not established.",
+      "licenseUrl": ""
+    },
+    "Hedley Bull": {
+      "src": "",
+      "name": "Hedley Bull",
+      "page": "https://press.anu.edu.au/publications/series/sdsc/remembering-hedley",
+      "source": "https://press-files.anu.edu.au/downloads/press/p59651/pdf/prelims22.pdf#page=1",
+      "credit": "ANU E Press, Remembering Hedley (2008), cover portrait; photographer uncredited. Publisher PDF: all rights reserved; image permission unresolved.",
+      "licenseUrl": ""
+    },
+    "Robert W. Cox": {
+      "src": "https://www.ppesydney.net/content/uploads/2018/10/RobertWCox.jpg",
+      "name": "Robert W. Cox",
+      "page": "https://www.ppesydney.net/tributes-to-robert-w-cox/",
+      "source": "https://www.ppesydney.net/tributes-to-robert-w-cox/",
+      "credit": "Progress in Political Economy, tribute by Shannon Brincat (2018); photographer uncredited. Reuse permission not established.",
+      "licenseUrl": ""
+    }
+  },
+  "review": {
+    "checkedAt": "2026-10-05",
+    "policy": "Candidates are reference records only. Empty licenseUrl means unresolved permission, not public domain. Empty src means no verified standalone image URL. Do not render candidates as portraits.",
+    "nodeNames": {
+      "frank": [
+        "Andre Gunder Frank"
+      ],
+      "rosenau": [
+        "Ernst-Otto Czempiel"
+      ],
+      "bull": [
+        "Hedley Bull"
+      ],
+      "cox": [
+        "Robert W. Cox"
+      ]
+    },
+    "people": {
+      "Andre Gunder Frank": {
+        "status": "permission-unresolved",
+        "reason": "人物身份可由2005年讣告确认；未找到摄影署名或针对这张照片的再使用许可。",
+        "evidence": [
+          "https://montrealserai.com/_archives/2005_Volume_18/18_1/Article_13.htm"
+        ]
+      },
+      "Ernst-Otto Czempiel": {
+        "status": "permission-unresolved",
+        "reason": "PRIF纪念册第29页为合影；第6页未列明覆盖此照片的开放许可，裁切头像也需另核授权。",
+        "evidence": [
+          "https://www.prif.org/fileadmin/Daten/Downloads/Flyer__Infomaterial_etc/broschuere_50jahre_barrierefrei.pdf#page=29",
+          "https://www.prif.org/fileadmin/Daten/Downloads/Flyer__Infomaterial_etc/broschuere_50jahre_barrierefrei.pdf#page=6"
+        ]
+      },
+      "Hedley Bull": {
+        "status": "conflicting-license",
+        "reason": "ANU原版PDF保留所有权利；JSTOR的全书许可标示不同，尚不能确认封面照片的独立再使用和裁切许可。",
+        "evidence": [
+          "https://press.anu.edu.au/publications/series/sdsc/remembering-hedley",
+          "https://press-files.anu.edu.au/downloads/press/p59651/pdf/prelims22.pdf#page=4",
+          "https://press.anu.edu.au/faqs/conditions-use",
+          "https://www.jstor.org/stable/j.ctt24h81d"
+        ]
+      },
+      "Robert W. Cox": {
+        "status": "permission-unresolved",
+        "reason": "2018年学术悼文明确为国际关系学者Cox；未找到摄影署名或图片的开放许可。",
+        "evidence": [
+          "https://www.ppesydney.net/tributes-to-robert-w-cox/"
+        ]
+      }
+    }
   }
 };

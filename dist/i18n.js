@@ -122,8 +122,8 @@ const t=source=>{
  const s=source.trim(),i=index();
  if(dict[s])return dict[s][i];
  if(s.startsWith('/ '))return '/ '+t(s.slice(2));
- const nodeLabel=s.match(/^(.*?)，(.*?)，(\d{4})$/);
- if(nodeLabel&&dict[nodeLabel[2]])return nodeLabel[1]+', '+t(nodeLabel[2])+', '+nodeLabel[3];
+ const nodeLabel=s.match(/^(.*?)，(.*?)，(\d{4}|约公元前\d+年)$/);
+ if(nodeLabel&&dict[nodeLabel[2]])return nodeLabel[1]+', '+t(nodeLabel[2])+', '+t(nodeLabel[3]);
  const schoolSuffix=s.match(/^(.*?)  \/  (\d+)$/);
  if(schoolSuffix&&dict[schoolSuffix[1]])return dict[schoolSuffix[1]][i]+' / '+schoolSuffix[2];
  if(s.includes(' / SELECTED NODE'))return t(s.split(' / SELECTED NODE')[0])+' / SELECTED NODE';
@@ -134,6 +134,7 @@ const t=source=>{
  return source;
 };
 // Academic summaries are independently condensed in each language.
+Object.assign(dict,window.POLITICS_UI_I18N||{});
 window.ATLAS.nodes.forEach(n=>{const row=window.ACADEMIC_I18N[n.id];if(!row)return;dict[n.title]=[row[0],row[2],row[4]];const short=n.title.split(' · ').pop();if(!dict[short])dict[short]=[row[0],row[2],row[4]];dict[n.claim]=[row[1],row[3],row[5]];dict[n.intro]=[row[1],row[3],row[5]]});
 function apply(){const htmlLang=lang==='zh'?'zh-CN':lang;if(document.documentElement.lang!==htmlLang)document.documentElement.lang=htmlLang;document.title='Alkaid’s Atlas · '+t('思想与学习');const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);while(walker.nextNode()){const n=walker.currentNode;if(n.parentElement.closest('script,style,textarea,[data-no-translate]'))continue;if(!originalText.has(n))originalText.set(n,n.textContent);const next=t(originalText.get(n));if(n.textContent!==next)n.textContent=next}document.querySelectorAll('[placeholder],[aria-label],[alt]').forEach(e=>{let attrs=originalAttrs.get(e);if(!attrs){attrs={};['placeholder','aria-label','alt'].forEach(k=>{if(e.hasAttribute(k))attrs[k]=e.getAttribute(k)});originalAttrs.set(e,attrs)}Object.entries(attrs).forEach(([k,v])=>{e.setAttribute(k,t(v))})});document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)))}
 document.querySelectorAll('select option').forEach(o=>{if(!o.hasAttribute('value'))o.value=o.textContent});

@@ -26,7 +26,7 @@ if(req.method==='POST'&&pathname==='/api/login'){const key=req.socket.remoteAddr
 if(!authenticated)return reply(401,{error:'请先登录'});
 if(req.method==='POST'&&pathname==='/api/logout'){sessions.delete(token);res.setHeader('Set-Cookie','atlas_owner=; HttpOnly; SameSite=Strict; Path=/; Max-Age=0');return reply(200,{ok:true})}
 if(req.method==='GET'&&pathname==='/api/content'){const c={window:{}};vm.runInNewContext(fs.readFileSync(contentFile,'utf8'),c,{timeout:100});return reply(200,c.window.ATLAS_CONTENT)}
-if(req.method==='GET'&&pathname==='/api/catalog'){const c={window:{}};for(const f of ['data.js','fields.js','academic-i18n.js','chinese-ir.js','reading-guides.js'])vm.runInNewContext(fs.readFileSync(path.join(root,f),'utf8'),c,{timeout:200});return reply(200,{nodes:c.window.ATLAS.nodes,guides:c.window.READING_GUIDES})}
+if(req.method==='GET'&&pathname==='/api/catalog'){const c={window:{}};for(const f of ['data.js','fields.js','academic-i18n.js','chinese-ir.js','reading-guides.js','politics.js'])vm.runInNewContext(fs.readFileSync(path.join(root,f),'utf8'),c,{timeout:200});return reply(200,{nodes:c.window.ATLAS.nodes,guides:c.window.READING_GUIDES})}
 if(req.method==='PUT'&&pathname==='/api/content'){let c;try{c=clean(body)}catch(e){return reply(400,{error:e.message})}fs.writeFileSync(contentFile+'.tmp','window.ATLAS_CONTENT = '+JSON.stringify(c,null,2).replace(/</g,'\\u003c')+';\n');fs.renameSync(contentFile+'.tmp',contentFile);return reply(200,{ok:true})}return reply(404,{error:'不存在此入口'});
 }
 if(!['GET','HEAD'].includes(req.method))return reply(405,{error:'页面只支持浏览'});
